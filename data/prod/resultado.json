@@ -1,0 +1,82 @@
+{
+    "avg_bytes_trafegados": 195014.8274845211,
+    "clientes_distintos": 333923,
+    "dia_semana_erro400": [
+        {
+            "requisicoes_erro400_por_dia_semana": 5,
+            "trat_dia_da_semana": "Dom"
+        }
+    ],
+    "dias_distintos": 791,
+    "max_bytes_trafegados": 80215072.0,
+    "min_bytes_trafegados": 1.0,
+    "top_10_clients_ip": [
+        {
+            "ip_requisicao": "10.216.113.172",
+            "requisicoes_por_ip": 158614
+        },
+        {
+            "ip_requisicao": "10.220.112.1",
+            "requisicoes_por_ip": 51942
+        },
+        {
+            "ip_requisicao": "10.173.141.213",
+            "requisicoes_por_ip": 47503
+        },
+        {
+            "ip_requisicao": "10.240.144.183",
+            "requisicoes_por_ip": 43592
+        },
+        {
+            "ip_requisicao": "10.41.69.177",
+            "requisicoes_por_ip": 37554
+        },
+        {
+            "ip_requisicao": "10.169.128.121",
+            "requisicoes_por_ip": 22516
+        },
+        {
+            "ip_requisicao": "10.211.47.159",
+            "requisicoes_por_ip": 20866
+        },
+        {
+            "ip_requisicao": "10.96.173.111",
+            "requisicoes_por_ip": 19667
+        },
+        {
+            "ip_requisicao": "10.203.77.198",
+            "requisicoes_por_ip": 18878
+        },
+        {
+            "ip_requisicao": "10.31.77.18",
+            "requisicoes_por_ip": 18721
+        }
+    ],
+    "top_6_endpoints_ip": [
+        {
+            "requisicoes_por_rota": 263725,
+            "rota": "/displaytitle.php"
+        },
+        {
+            "requisicoes_por_rota": 141291,
+            "rota": "/downloadSingle.php"
+        },
+        {
+            "requisicoes_por_rota": 117348,
+            "rota": "/assets/css/combined.css"
+        },
+        {
+            "requisicoes_por_rota": 106979,
+            "rota": "/assets/js/javascript_combined.js"
+        },
+        {
+            "requisicoes_por_rota": 100327,
+            "rota": "/"
+        },
+        {
+            "requisicoes_por_rota": 98775,
+            "rota": "/assets/img/home-logo.png"
+        }
+    ],
+    "total_bytes_trafegados": 805219147906.0
+}

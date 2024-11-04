@@ -1,0 +1,19 @@
+{"pyspark_version": "3.5.3", "event": "Vers\u00e3o PySpark", "level": "info", "timestamp": "2024-11-04 14:11.49"}
+{"parametros": {"spark.executor.memory": "8g", "spark.executor.cores": "2", "spark.driver.memory": "4g", "spark.jars": "/opt/spark/jars/postgresql-42.7.4.jar", "spark.sql.extensions": "io.delta.sql.DeltaSparkSessionExtension", "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.delta.catalog.DeltaCatalog"}, "event": "Spark configurado com os par\u00e2metros", "level": "info", "timestamp": "2024-11-04 14:11.49"}
+{"event": "Spark session iniciada App 'CodeElevate' e configura\u00e7\u00f5es 'local[*]'", "level": "info", "timestamp": "2024-11-04 14:11.49"}
+{"colunas": [], "event": "Colunas removidas por falta de preenchimento", "level": "info", "timestamp": "2024-11-04 14:11.59"}
+{"colunas": ["_c1"], "event": "Colunas removidas por falta de variabilidade", "level": "info", "timestamp": "2024-11-04 14:12.06"}
+{"profile": {"_c0": {"contagem_nulos": 0, "percentual_nulos": "Decimal('0.0')", "contagem_unicos": 333923, "percentual_unicos": "Decimal('7.457')"}, "_c2": {"contagem_nulos": 7, "percentual_nulos": "Decimal('0.0001563')", "contagem_unicos": 18, "percentual_unicos": "Decimal('0.0004020')"}, "_c3": {"contagem_nulos": 19, "percentual_nulos": "Decimal('0.0004243')", "contagem_unicos": 2037794, "percentual_unicos": "Decimal('45.51')"}, "_c4": {"contagem_nulos": 0, "percentual_nulos": "Decimal('0.0')", "contagem_unicos": 28, "percentual_unicos": "Decimal('0.0006253')"}, "_c5": {"contagem_nulos": 0, "percentual_nulos": "Decimal('0.0')", "contagem_unicos": 63078, "percentual_unicos": "Decimal('1.409')"}, "_c6": {"contagem_nulos": 0, "percentual_nulos": "Decimal('0.0')", "contagem_unicos": 14, "percentual_unicos": "Decimal('0.0003127')"}, "_c7": {"contagem_nulos": 0, "percentual_nulos": "Decimal('0.0')", "contagem_unicos": 61474, "percentual_unicos": "Decimal('1.373')"}}, "event": "Perfil de dados", "level": "info", "timestamp": "2024-11-04 14:12.16"}
+{"event": "Renomeando colunas", "level": "info", "timestamp": "2024-11-04 14:12.16"}
+{"event": "Construindo colunas rota e verbo", "level": "info", "timestamp": "2024-11-04 14:12.16"}
+{"event": "Construindo coluna data", "level": "info", "timestamp": "2024-11-04 14:12.16"}
+{"event": "Construindo coluna hor\u00e1rio", "level": "info", "timestamp": "2024-11-04 14:12.16"}
+{"event": "Construindo coluna dia da semana", "level": "info", "timestamp": "2024-11-04 14:12.16"}
+{"event": "Persistindo dados em \u00e1rea de staging", "level": "info", "timestamp": "2024-11-04 14:12.16"}
+{"event": "Calculando top 10 clientes ip por quantidade de requisi\u00e7\u00f5es", "level": "info", "timestamp": "2024-11-04 14:12.41"}
+{"event": "Calculando top 6 endpoints por quantidade de requisi\u00e7\u00f5es, desconsiderando par\u00e2metros de rota", "level": "info", "timestamp": "2024-11-04 14:12.44"}
+{"event": "Calculando n\u00famero de clients (ips) distintos", "level": "info", "timestamp": "2024-11-04 14:12.45"}
+{"event": "Calculando n\u00famero dias distintos", "level": "info", "timestamp": "2024-11-04 14:12.46"}
+{"event": "Calculando m\u00e9tricas de volume de dados das requisi\u00e7\u00f5es", "level": "info", "timestamp": "2024-11-04 14:12.47"}
+{"event": "Encontrando dia da semana com maior n\u00famero de erros de cliente (400)", "level": "info", "timestamp": "2024-11-04 14:12.48"}
+{"path": "PosixPath('/home/rfileto/Projetos/Python/First/data/prod/resultado.json')", "event": "Gravando arquivo de resultados", "level": "info", "timestamp": "2024-11-04 14:12.49"}
