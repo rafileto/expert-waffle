@@ -3,7 +3,7 @@ from pathlib import Path
 from decimal import getcontext
 
 
-caminho_base = Path(os.getenv("BASE_PATH", "/app")) 
+caminho_base = Path(os.getenv("BASE_PATH", "/app"))
 caminhos = {
     "logs": caminho_base.joinpath("logs"),
     "raw": caminho_base.joinpath("data").joinpath("raw"),

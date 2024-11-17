@@ -1,7 +1,7 @@
 import structlog
 import logging
 from pathlib import Path
-from logging import Logger
+from logging import Logger, FileHandler
 
 import pyspark
 from pyspark.sql import SparkSession
@@ -12,12 +12,21 @@ from config import caminhos
 
 
 def configure_logger(nome_processo: str):
+    """
+    Configura o logger utilizando structlog e o módulo padrão de logging com encoding UTF-8.
+
+    :param nome_log: Nome do logger a ser configurado.
+    """
+
     structlog.configure(
         processors=[
             structlog.processors.add_log_level,
             structlog.processors.StackInfoRenderer(),
-            structlog.processors.TimeStamper(fmt="%Y-%m-%d %H:%M.%S"),
-            structlog.processors.JSONRenderer(),
+            structlog.processors.TimeStamper(fmt="%Y-%m-%d %H:%M:%S"),
+            structlog.processors.format_exc_info,
+            structlog.processors.UnicodeDecoder(encoding='utf-8', errors='replace'),
+            structlog.processors.JSONRenderer()
+            
         ],
         wrapper_class=structlog.make_filtering_bound_logger(logging.INFO),
         context_class=dict,
@@ -31,7 +40,7 @@ def start_spark_session(
     logger: Logger,
     app_name: str = "MySparkApp",
     master: str = "local[*]",
-    config_dict: dict = None,
+    config_dict: dict | None = None,
 ) -> SparkSession:
     """
     Start a Spark session with customizable options.

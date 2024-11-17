@@ -34,6 +34,7 @@ RUN pip3 install -r requirements.txt
 
 # Copy the application code into the container
 COPY . /app/
+ENV PYTHONPATH=$PYTHONPATH:/app/src
 
 # Set up the working directory
 WORKDIR /app
@@ -41,3 +42,4 @@ WORKDIR /app
 
 # Set the entry point to run the PySpark application
 ENTRYPOINT ["python3", "src/pipeline.py"]
+# CMD ["python3"]

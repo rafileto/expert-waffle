@@ -1,10 +1,14 @@
 import structlog
 import json
 from pprint import pprint
+from pathlib import Path
 from pyspark.sql import DataFrame
 from pyspark.sql import functions as F
 
 from config import caminhos, spark_config, config_banco
+
+from ingestion import download_input, extract_all
+
 from data_utils import (
     generate_spark_data_profile,
     remove_high_null_percentage_columns,
@@ -25,6 +29,9 @@ from infra import start_spark_session, configure_logger
 configure_logger("pipeline")
 logger = structlog.get_logger()
 
+res_download = download_input(logger, caminhos["raw"])
+zip_file_local_path = Path(res_download)
+extract_all(zip_file_local_path, caminhos["raw"], logger)
 
 spark_session = start_spark_session(logger, "sparkapp", config_dict=spark_config)
 
@@ -91,7 +98,9 @@ results["top_10_clients_ip"] = json.loads(
 )
 
 
-logger.info("Calculando top 6 endpoints por quantidade de requisições, desconsiderando parâmetros de rota")
+logger.info(
+    "Calculando top 6 endpoints por quantidade de requisições, desconsiderando parâmetros de rota"
+)
 top_6_endpoints_ip = (
     stagged_df.groupBy("rota")
     .agg(F.count("rota").alias("requisicoes_por_rota"))
@@ -106,7 +115,7 @@ logger.info("Calculando número de clients (ips) distintos")
 clientes_distintos = stagged_df.select("ip_requisicao").distinct().count()
 results["clientes_distintos"] = clientes_distintos
 
-logger.info("CalcCodeElevate
+
 logger.info("Calculando métricas de volume de dados das requisições")
 total_bytes_trafegados = stagged_df.agg(F.sum("volume_resposta")).first()[0]
 results["total_bytes_trafegados"] = total_bytes_trafegados
@@ -135,7 +144,9 @@ results["dia_semana_erro400"] = json.loads(
 )
 
 
-logger.info("Gravando arquivo de resultados", path=caminhos["prod"].joinpath("resultado.json"))
+logger.info(
+    "Gravando arquivo de resultados", path=caminhos["prod"].joinpath("resultado.json")
+)
 with open(caminhos["prod"].joinpath("resultado.json"), "w") as f:
     json.dump(results, f, sort_keys=True, indent=4)
 

@@ -7,16 +7,7 @@ São necessários para a execução o binários do docker e makefile instalado p
 
 ## Execução
 
-Para executar as rotinas é necessário baixar o arquivo de https://drive.google.com/file/d/1p5fWpn53iuMZx06uRM9VEwRgAdgjDCii/view?usp=sharing, descompactar e salvá-lo no diretório data/raw.
-
-- Entrar no diretório do projeto
-
-```shell
-cd diretorio/clone_repositorio
-cp -r diretorio/download/arquivo/access_log.zip data/raw
-unzip data/raw/file.zip -d data/raw/
-rm -rf data/raw/file.zip
-```
+O download dos inputs é automático, bastante executar o pipeline de integração
 
 Após esta etapa, basta rodar o comando 'make all'.
 ```shell
@@ -29,8 +20,8 @@ export DOCKER_IMAGE=codeelevate
 export SPARK_JOB_SCRIPT=src/pipeline.py
 
 docker build -t $(DOCKER_IMAGE) .
-docker run --rm $(DOCKER_IMAGE) python -m unittest discover -s tests -p "test_*.py"
-docker run --rm $(DOCKER_IMAGE) spark-submit --master local[4] $(SPARK_JOB_SCRIPT)
+docker run --rm $(DOCKER_IMAGE) BASE_PATH="/app" python -m unittest discover -s tests -p "test_*.py"
+docker run --rm $(DOCKER_IMAGE) BASE_PATH="/app" spark-submit --master local[4] $(SPARK_JOB_SCRIPT)
 ```
 
 ## Resultados

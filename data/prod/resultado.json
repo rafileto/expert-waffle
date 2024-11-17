@@ -7,7 +7,6 @@
             "trat_dia_da_semana": "Dom"
         }
     ],
-    "dias_distintos": 791,
     "max_bytes_trafegados": 80215072.0,
     "min_bytes_trafegados": 1.0,
     "top_10_clients_ip": [
