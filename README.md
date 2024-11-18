@@ -19,8 +19,8 @@ Caso make não esteja presente é possível executar
 export DOCKER_IMAGE=codeelevate
 export SPARK_JOB_SCRIPT=src/pipeline.py
 
+BASE_PATH="/app" python -m unittest discover -s tests -p "test_*.py"
 docker build -t $(DOCKER_IMAGE) .
-docker run --rm $(DOCKER_IMAGE) BASE_PATH="/app" python -m unittest discover -s tests -p "test_*.py"
 docker run --rm $(DOCKER_IMAGE) BASE_PATH="/app" spark-submit --master local[4] $(SPARK_JOB_SCRIPT)
 ```
 
